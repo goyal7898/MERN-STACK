@@ -1,3 +1,5 @@
+
+
 import { useEffect } from 'react';
 //components
 import NavBar from './NavBar';
@@ -40,6 +42,7 @@ const Home = () => {
     },[dispatch])
 
     return(
+       
         <>
            <NavBar />
            <Component>
@@ -55,6 +58,7 @@ const Home = () => {
                <Slide products={products} title="Top Deals on Accessories" timer={false} />  
            </Component>
         </>
+
     )
 }
 export default Home;

@@ -6,8 +6,8 @@ import { ShoppingCart as Cart, FlashOn as Flash } from '@mui/icons-material/';
 import { useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { addToCart } from '../../redux/actions/cartActions2';
-import { payUsingPaytm } from '../../service/api';
-import { post } from '../../utils/paytm';
+
+
 
 const LeftContainer = styled(Box)(({ theme }) => ({
     minWidth: '40%',
@@ -53,12 +53,7 @@ const ActionItem = ({ product }) => {
     }
 
     const buyNow = async () => {
-        let response = await payUsingPaytm({ amount: 100, email: 'ramugoyal091@gmail.com'});
-        let information = {
-            action: 'https://securegw-stage.paytm.in/order/process',
-            params: response    
-        }
-        post(information);
+       
     }
 
     return(

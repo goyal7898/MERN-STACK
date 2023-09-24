@@ -1,20 +1,18 @@
+import { instance } from "../index.js";
 
-import paytmchecksum from '../paytm/PaytmChecksum.js';
-import { paytmParams, paytmMerchantkey } from '../index.js';
+export const checkout = async (request,response) => {
 
 
-export const addPaymentGateway = async (request,response ) => {
-    try {
-        let PaytmCheckum = await paytmchecksum.generateSignature(paytmParams, paytmMerchantkey);
+    const options = {
+        amount: 50000,  // amount in the smallest currency unit
+        currency: "INR",        
+      };
 
-        let params = {
-         ...paytmParams, 'CHECKSUMHASH': paytmchecksum   
-        }
+      const order = await instance.orders.create(options)
 
-        response.status(200).json(params);
-    }catch(error) {
-        response.status(500).json({ errror: error.message })
+      console.log(order);
+      res.status(200).json({
+        success: true,
+      });
 
-    }
-
-}
+};

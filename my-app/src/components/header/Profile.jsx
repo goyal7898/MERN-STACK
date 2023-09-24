@@ -1,7 +1,8 @@
 import { useState } from 'react';
 
+
 import { Box, Typography, Menu, MenuItem, styled } from '@mui/material';
-import  PowerSettingsNewIcon  from '@mui/icons-material/PowerSettingsNew';
+import  PowerSettingsNewIcon11  from '@mui/icons-material/PowerSettingsNew';
 
 const Component = styled(Menu)`
    margin-top: 5px;
@@ -26,8 +27,7 @@ const Profile = ({account, setAccount}) => {
    }
    
    const logoutUser = () => {
-      setAccount('');
-                
+      setAccount('');             
    }
 
     return(
@@ -39,7 +39,7 @@ const Profile = ({account, setAccount}) => {
                onClose={handleClose}             
             >
                <MenuItem onClick={() => {handleClose(); logoutUser(); }}>
-                  <PowerSettingsNewIcon color="primary" fontSize="small" />
+                  <PowerSettingsNewIcon11 color="primary"  fontSize="small" />
                   <Logout>Logout</Logout>
                </MenuItem>
             </Component>

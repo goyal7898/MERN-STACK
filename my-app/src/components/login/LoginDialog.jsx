@@ -1,14 +1,7 @@
 import { useState, useContext } from "react";
 
-import {
-  Dialog,
-  Box,
-  TextField,
-  Typography,
-  Button,
-  styled,
-} from "@mui/material";
-
+import { Dialog, Box, TextField, Typography, Button, styled,} from "@mui/material";
+ 
 import { authenticateSignup, authenticateLogin } from "../../service/api";
 import { DataContext } from "../../context/DataProvider";
 
@@ -18,9 +11,8 @@ const Component = styled(Box)`
 `;
 
 const Image = styled(Box)`
-  background: #2874f0
-    url(https://static-assets-web.flixcart.com/www/linchpin/fk-cp-zion/img/login_img_c4a81e.png)
-    center 85% no-repeat;
+  background: #2874f0 url(https://static-assets-web.flixcart.com/www/linchpin/fk-cp-zion/img/login_img_c4a81e.png)  
+  center 85% no-repeat;
   height: 83%;
   width: 28%;
   padding: 45px 35px;

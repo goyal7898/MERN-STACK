@@ -6,11 +6,14 @@ import DetailView from './components/details/DetailView';
 import Cart from './components/cart/Cart';
 
 
+
+
 import DataProvider from './context/DataProvider';
 
 import { Box } from '@mui/material';
 
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
+
 
 
 function App() {

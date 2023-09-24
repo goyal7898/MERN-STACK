@@ -26,23 +26,35 @@ export const userLogin = async (request, response) => {
         const password = request.body.password;
 
         let user = await User.findOne({ username: username });
-        const matchPassword = await comparePassword(password, user.password)
+        if (!user) {
+            return response.status(400).json({
+                success: false,
+                message: "User does not exist"
+            });
+        }
+
+        const matchPassword = await comparePassword(password, user.password);
         if (!matchPassword) {
             return response.status(401).send({
                 success: false,
                 message: "Incorrect Password"
             })
         }
+
         let token = await JWT.sign({ _id: user._id }, process.env.JWT_SECRET, { expiresIn: '7d' });
-        if (user) {
-            return response.status(200).json({ data: user, token });
-        } else {
-            return response.status(401).json('Invalid login');
-        }
-
+        return response.status(200).json({
+            success: true,
+            data: user,
+            token
+        });
     } catch (error) {
-        response.status(500).json('Error', error.message);
-
+        console.error('Error:', error);
+        response.status(500).json({
+            success: false,
+            message: 'Internal server error'
+        });
     }
-
 }
+
+
+
